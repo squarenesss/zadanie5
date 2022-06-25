@@ -65,8 +65,7 @@ int main(int arc, char * argv[]) {
     printf("\n Ilosc waznych kolorow: %d", Picture.PicClrImportant);
 }
 
-    printf("\n\n Tworzenie negatywu pliku test.bmp");
-
+    printf("\n\n Utworzenie negatywu pliku test.bmp");
     FILE* w = fopen("negatyw.bmp", "w+");
     printf("\n Plik negatyw.bmp zostal otwarty");
 
@@ -86,7 +85,8 @@ int main(int arc, char * argv[]) {
     fwrite(&Picture.PicYres, sizeof(Picture.PicYres), 1, w);
     fwrite(&Picture.PicClrUsed, sizeof(Picture.PicClrUsed), 1, w);
     fwrite(&Picture.PicClrImportant, sizeof(Picture.PicClrImportant), 1, w);
-
+    
+    printf("\n Tworzenie negatywu....");
     int negative;
     for (int i = File.BitsPosition; i < File.Size; i++)
     {
@@ -96,6 +96,7 @@ int main(int arc, char * argv[]) {
         negative = INT_MAX - negative;
         fwrite(&negative, 3, 1, w);
     }
-     
+    printf("\n\n Negatyw zostal utworzony!");
+    printf("\n");
     fclose(f);
     fclose(w);
