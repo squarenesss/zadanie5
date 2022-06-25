@@ -96,4 +96,6 @@ int main(int arc, char * argv[]) {
         negative = INT_MAX - negative;
         fwrite(&negative, 3, 1, w);
     }
-    
+     
+    fclose(f);
+    fclose(w);
