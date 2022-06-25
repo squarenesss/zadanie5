@@ -26,4 +26,6 @@ struct PHeader {
 
 int main(int arc, char * argv[]) {
     
+     FILE* f = fopen("test.bmp", "r");
+    
 }
