@@ -23,3 +23,7 @@ struct PHeader {
     int PicClrUsed;
     int PicClrImportant;
 } Picture;
+
+int main(int arc, char * argv[]) {
+    
+}
