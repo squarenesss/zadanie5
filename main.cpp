@@ -27,6 +27,7 @@ struct PHeader {
 int main(int arc, char * argv[]) {
     
     FILE* f = fopen("test.bmp", "r");
+    printf(" Plik test.bmp zostal otwarty \n");
     
     fread(&File.Type, sizeof(File.Type), 1, f);
     fread(&File.Size, sizeof(File.Size), 1, f);
