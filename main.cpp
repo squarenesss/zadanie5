@@ -45,5 +45,23 @@ int main(int arc, char * argv[]) {
     fread(&Picture.PicClrUsed, sizeof(Picture.PicClrUsed), 1, f);
     fread(&Picture.PicClrImportant, sizeof(Picture.PicClrImportant), 1, f);
     
+    printf(" Informacje o pliku BMP\n");
+    printf(" Typ: %x", File.Type);
+    printf("\n Rozmiar pliku: %d bajtow", File.Size);
+    printf("\n Zarezerwowane 1: %d", File.Reserved1);
+    printf("\n Zarezerwowane 2: %d", File.Reserved2);
+    printf("\n Pozycja danych obrazkowych: %d", File.BitsPosition);
+    printf("\n Wielkosc naglowka informacyjnego: %d", Picture.PicSize);
+    printf("\n Szerokosc obrazka: %d pikseli", Picture.PicWidth);
+    printf("\n Wysokosc obrazka: %d pikseli", Picture.PicHeight);
+    printf("\n Liczba platow: %d", Picture.PicPlanes);
+    printf("\n Ilosc bitow na piksel: %d (1, 4, 8, or 24)", Picture.PicBitCount);
+    printf("\n Kompresja: %d (0=none, 1=RLE-8, 2=RLE-4)", Picture.PicCompression);
+    printf("\n Rozmiar samego rysunku: %d", Picture.PicSizeImage);
+    printf("\n Rozdzielczosc pozioma obrazka: %d", Picture.PicXres);
+    printf("\n Rozdzielczosc pionowa obrazka: %d", Picture.PicYres);
+    printf("\n Ilosc kolorow: %d", Picture.PicClrUsed);
+    printf("\n Ilosc waznych kolorow: %d", Picture.PicClrImportant);
+    
 
 }
