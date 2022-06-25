@@ -63,6 +63,11 @@ int main(int arc, char * argv[]) {
     printf("\n Rozdzielczosc pionowa obrazka: %d", Picture.PicYres);
     printf("\n Ilosc kolorow: %d", Picture.PicClrUsed);
     printf("\n Ilosc waznych kolorow: %d", Picture.PicClrImportant);
-    
-
 }
+
+    printf("\n\n Tworzenie negatywu pliku test.bmp");
+
+    FILE* w = fopen("negatyw.bmp", "w+");
+    printf("Plik negatyw.bmp zostal otwarty");
+
+
