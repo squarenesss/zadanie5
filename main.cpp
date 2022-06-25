@@ -68,6 +68,32 @@ int main(int arc, char * argv[]) {
     printf("\n\n Tworzenie negatywu pliku test.bmp");
 
     FILE* w = fopen("negatyw.bmp", "w+");
-    printf("Plik negatyw.bmp zostal otwarty");
+    printf("\n Plik negatyw.bmp zostal otwarty");
 
+    fwrite(&File.Type, sizeof(File.Type), 1, w);
+    fwrite(&File.Size, sizeof(File.Size), 1, w);
+    fwrite(&File.Reserved1, sizeof(File.Reserved1), 1, w);
+    fwrite(&File.Reserved2, sizeof(File.Reserved2), 1, w);
+    fwrite(&File.BitsPosition, sizeof(File.BitsPosition), 1, w);
+    fwrite(&Picture.PicSize, sizeof(Picture.PicSize), 1, w);
+    fwrite(&Picture.PicWidth, sizeof(Picture.PicWidth), 1, w);
+    fwrite(&Picture.PicHeight, sizeof(Picture.PicHeight), 1, w);
+    fwrite(&Picture.PicPlanes, sizeof(Picture.PicPlanes), 1, w);
+    fwrite(&Picture.PicBitCount, sizeof(Picture.PicBitCount), 1, w);
+    fwrite(&Picture.PicCompression, sizeof(Picture.PicCompression), 1, w);
+    fwrite(&Picture.PicSizeImage, sizeof(Picture.PicSizeImage), 1, w);
+    fwrite(&Picture.PicXres, sizeof(Picture.PicXres), 1, w);
+    fwrite(&Picture.PicYres, sizeof(Picture.PicYres), 1, w);
+    fwrite(&Picture.PicClrUsed, sizeof(Picture.PicClrUsed), 1, w);
+    fwrite(&Picture.PicClrImportant, sizeof(Picture.PicClrImportant), 1, w);
 
+    int negative;
+    for (int i = File.BitsPosition; i < File.Size; i++)
+    {
+        fseek(f, i, SEEK_SET);
+        fseek(w, i, SEEK_SET);
+        fread(&negative, 3, 1, f);
+        negative = INT_MAX - negative;
+        fwrite(&negative, 3, 1, w);
+    }
+    
