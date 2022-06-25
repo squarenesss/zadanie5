@@ -10,3 +10,16 @@ struct Header {
     int BitsPosition;
 } File;
 
+struct PHeader {
+    int PicSize;
+    int PicWidth;
+    int PicHeight;
+    short PicPlanes;
+    short PicBitCount;
+    int PicCompression;
+    int PicSizeImage;
+    int PicXres;
+    int PicYres;
+    int PicClrUsed;
+    int PicClrImportant;
+} Picture;
